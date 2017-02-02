@@ -224,7 +224,8 @@
 			}
 			if($el.is('.scrollY')) {
 				$viewport.css({
-					'padding-right': scrollbarSize + 'px',
+					// This is a fix for macOS, all browsers in macOS has the double scrollbar.
+					'padding-right': (scrollbarSize === 0) ? 15 : scrollbarSize + 'px',
 					'margin-right': (-scrollbarSize) + 'px'
 				});
 				$content.css({
